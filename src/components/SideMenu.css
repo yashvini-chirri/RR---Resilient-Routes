@@ -1,0 +1,374 @@
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1500;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -350px;
+  width: 350px;
+  height: 100vh;
+  background: white;
+  z-index: 2000;
+  transition: left 0.3s ease;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.menu-header {
+  padding: 20px;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.menu-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-content {
+  flex: 1;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.menu-section {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.menu-item {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  transition: background 0.2s ease;
+  position: relative;
+}
+
+.menu-item:hover {
+  background: #f8f9fa;
+}
+
+.menu-item.emergency {
+  background: #fff5f5;
+  color: #dc3545;
+}
+
+.menu-item.emergency:hover {
+  background: #fee;
+}
+
+.menu-icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
+
+.menu-text {
+  flex: 1;
+  font-weight: 500;
+}
+
+.menu-arrow {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.submenu {
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.submenu-item {
+  width: 100%;
+  padding: 12px 20px 12px 56px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.submenu-item:hover {
+  background: #e9ecef;
+}
+
+.hazard-icon {
+  font-size: 16px;
+  width: 20px;
+}
+
+.safety-guidelines {
+  padding: 0;
+}
+
+.guideline-category {
+  padding: 16px 20px 16px 56px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.guideline-category:last-child {
+  border-bottom: none;
+}
+
+.guideline-category h4 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.guideline-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guideline-category li {
+  padding: 4px 0;
+  font-size: 13px;
+  color: #6c757d;
+  position: relative;
+  padding-left: 16px;
+}
+
+.guideline-category li::before {
+  content: '•';
+  color: #667eea;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .side-menu {
+    width: 100vw;
+    left: -100vw;
+  }
+  
+  .side-menu.open {
+    left: 0;
+  }
+}
+
+/* Hazard Form Styles */
+.hazard-form {
+  padding: 20px;
+}
+
+.hazard-form h4 {
+  margin: 0 0 20px 0;
+  color: #495057;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #495057;
+}
+
+.selected-hazard {
+  background: #e9ecef;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #495057;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.submit-btn,
+.cancel-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit-btn {
+  background: #667eea;
+  color: white;
+}
+
+.submit-btn:hover {
+  background: #5a6fd8;
+  transform: translateY(-1px);
+}
+
+.cancel-btn {
+  background: #e9ecef;
+  color: #495057;
+}
+
+.cancel-btn:hover {
+  background: #dee2e6;
+}
+
+/* Enhanced Location Input Styles */
+.location-input-container {
+  position: relative;
+}
+
+.location-input-container input.validated {
+  border-color: #28a745;
+  background: #f8fff9;
+}
+
+.geocoding-spinner {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translateY(-50%) rotate(0deg); }
+  100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+.location-validated {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #28a745;
+  font-weight: 500;
+}
+
+.location-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-item {
+  padding: 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
+.suggestion-item:hover {
+  background-color: #f8f9fa;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-main {
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.suggestion-detail {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.3;
+}
